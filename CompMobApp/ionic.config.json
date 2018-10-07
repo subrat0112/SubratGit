@@ -1,0 +1,7 @@
+{
+  "name": "CompMobApp",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

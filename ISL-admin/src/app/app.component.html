@@ -1,0 +1,30 @@
+<!-- <div class="mat-elevation">
+  <nav class="docs-navbar-header font-size-17">
+    Pathsala Admin
+  </nav>
+  <nav class="docs-navbar-header">
+    SMS Admin
+  </nav>
+</div>
+
+<div class="container-fluid header-margin">
+  <app-body></app-body>
+</div> -->
+<div class="mat-elevation">
+    <nav class="docs-navbar-header font-size-17">
+      Pathsala Admin
+    </nav>
+    <nav class="docs-navbar-header">
+      {{ ScreenHeader }}
+    </nav>
+</div>
+<div class='container-fluid'>
+  <div class='row'>
+      <div class='col-sm-3'>
+          <app-navmenu></app-navmenu>
+      </div>
+      <div class='col-sm-9 body-content'>
+          <router-outlet></router-outlet>
+      </div>
+  </div>
+</div>

@@ -1,0 +1,37 @@
+@media (max-width: 767px) {
+    /* On small screens, the nav menu spans the full width of the screen. Leave a space for it. */
+    .body-content {
+        padding-top: 50px;
+    }
+}
+
+.mat-elevation{
+	box-shadow: 0 3px 5px -1px rgba(0,0,0,.2), 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    color: white;
+}
+.mat-radio-button {
+    padding-right: 30px;
+  }
+.docs-navbar-header{
+	display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 12px;
+    background: #673ab7;
+    text-align: center;
+    display: inline-block;
+    width: 100%;
+}
+
+.font-size-17{
+    font-size: 17px;
+}
+
+.header-margin{
+	margin-top: 120px;
+}

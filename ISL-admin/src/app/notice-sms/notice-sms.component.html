@@ -1,0 +1,65 @@
+<div class="container-fluid header-margin">
+  <div class="row">
+    <div class="col-sm">
+      <mat-form-field [style.width]="'100%'">
+        <mat-select placeholder="SMS Type" [(value)]="selectedGroup">
+          <mat-option *ngFor="let group of groups" [value]="group.value">
+            {{group.viewValue}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="row" *ngIf="selectedGroup!='School'">
+    <div class="col-sm">
+      <mat-form-field [style.width]="'100%'">
+        <mat-select placeholder="Class" [(value)]="selectedClass">
+          <mat-option *ngFor="let val of classes" [value]="val">
+            {{val.viewValue}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="col-sm" *ngIf="selectedGroup=='ClassSec' || selectedGroup=='Student'">
+        <mat-form-field [style.width]="'100%'">
+          <mat-select placeholder="Section" [(value)]="selectedSection">
+            <mat-option *ngFor="let val of selectedClass.sections" [value]="val.value">
+              {{val.viewValue}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+    </div>
+  </div>
+  <div class="row" *ngIf="selectedGroup=='Student'">
+    <div class="col-sm">
+      <form class="example-form">
+        <mat-form-field [style.width]="'100%'">
+          <input type="text" placeholder="Search Student" aria-label="Number" [(ngModel)]="searchInput"
+      (input)="onSearchInput($event)" matInput [formControl]="myControl" [matAutocomplete]="auto">
+          <mat-autocomplete #auto="matAutocomplete">
+            <mat-option *ngFor="let stu of searchedStudents" [value]="stu.studentName" (click)="pushStudent(stu)">
+              {{stu.studentName}}
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+      </form>
+    </div>
+    <div class="col-sm">
+      <mat-list role="list">
+        <mat-list-item  *ngFor="let stu of selectedStudents" role="listitem">{{stu.studentName}}</mat-list-item>
+      </mat-list>
+    </div>
+  </div>
+  <div class="row">
+      <div class="col-sm">
+          <mat-form-field [style.width]="'100%'">
+            <textarea matInput placeholder="Enter SMS Text" [(ngModel)]="SMSText"></textarea>
+          </mat-form-field>
+      </div>
+  </div>
+  <div class="row">
+      <div class="col-sm">
+          <button mat-flat-button [style.width]="'100%'" [disabled]="SMSText=='' || (this.selectedGroup=='Student' && !this.selectedSection) || (this.selectedGroup=='ClassSec' && !this.selectedSection)" (click)="sendSMS()">Send SMS</button>
+      </div>
+  </div>
+</div>
